@@ -1,2 +1,2 @@
-# Get Random Quote
- My First Project 
+#Techdegree Project 
+ My First Project
