@@ -9,77 +9,93 @@ project 1 - A Random Quote Generator
 /***
  * `quotes` array
 ***/
-//build an array Object of quotes
+//Version 3
 var quotes = [{
-	msg: 'I think, there for Iam.',
-	creator: ' René Descartes',
-	citing: ' Princicples of phlosophy, Part 1, article 7, ',
+	quote: 'I think, there for Iam.',
+	source: ' René Descartes',
+	citation: ' Princicples of phlosophy, Part 1, article 7, ',
 	year: '1644'
 }, {
-	msg: 'The supreme art of war is to subdue the enemy without fighting.',
-	creator: ' Sun Tzu',
-	citing: ' The art of War',
+	quote: 'The supreme art of war is to subdue the enemy without fighting.',
+	source: ' Sun Tzu',
+	citation: ' The art of War',
 	year: '500 BC'
 }, {
-	msg: " Price doesn't make deals, and salary doesn't control your career",
-	creator: ' Chris Voss',
-	citing: ' Never Split the difference, ',
+	quote: " Price doesn't make deals, and salary doesn't control your career",
+	source: ' Chris Voss',
+	citation: ' Never Split the difference, ',
 	year: 'May 17,2016'
 }, {
-	msg: " I say luck is when an opportunity comes along and you're prepared for it.",
-	creator: 'Denzel Washington',
-	citing: 'Speech, ',
+	quote: " I say luck is when an opportunity comes along and you're prepared for it.",
+	source: 'Denzel Washington',
+	citation: 'Speech, ',
 	year: ' 2010-2020'
 }, {
-	msg: " The 40% rule is simple: When your mind is telling you that you're done, that you're exhausted, that you cannot possibly go any further, you're only actually 40% done.",
-	creator: 'David Goggins',
-	citing: 'Cant Hurt Me, ',
+	quote: " The 40% rule is simple: When your mind is telling you that you're done, that you're exhausted, that you cannot possibly go any further, you're only actually 40% done.",
+	source: 'David Goggins',
+	citation: 'Cant Hurt Me, ',
 	year: 'Oct 6,2017'
 }];
+
+
 /***
  * `getRandomQuote` function
+return a random object from the quotes array
  ***/
+
 function getRandomQuote() {
 	let wisdom;
 	let whoSaidIt;
 	let whereSaid;
 	let whenSaid;
-	let storeData = [];
+	let storeData;
+
 	var randomNum = Math.floor(Math.random() * (quotes.length));
-	wisdom = quotes[randomNum].msg;
-	whoSaidIt = quotes[randomNum].creator;
-	whereSaid = quotes[randomNum].citing;
+  /*
+	wisdom = quotes[randomNum].quote;
+	whoSaidIt = quotes[randomNum].source;
+	whereSaid = quotes[randomNum].citation;
 	whenSaid = quotes[randomNum].year;
 	storeData.push(wisdom);
 	storeData.push(whoSaidIt);
 	storeData.push(whereSaid);
 	storeData.push(whenSaid);
 	return storeData;
+  */
+  storeData = quotes[randomNum];
+  return storeData;
 }
 /***
  * `printQuote` function
  ***/
+
 function printQuote() {
 	let msg;
 	let whoSaidit;
 	let whereSaidit;
 	let whenSaidit;
 	let data = getRandomQuote();
+
 	msg = document.getElementsByClassName('quote');
-	msg[0].innerHTML = `${data[0]}`;
+	msg[0].innerHTML = `${data.quote}`;
+
 	whoSaidit = document.getElementsByClassName('source');
-	whoSaidit[0].textContent = `${data[1]}`
+	whoSaidit[0].textContent = `${data.source}`;
+
 	whereSaidit = document.createElement('span');
 	whereSaidit.setAttribute('class', 'citation');
-	whereSaidit.textContent = `${data[2]}`;
+	whereSaidit.textContent = `${data.citation}`;
+
 	whoSaidit[0].appendChild(whereSaidit);
 	whenSaidit = document.createElement('span');
 	whenSaidit.setAttribute('class', 'source')
-	whenSaidit.textContent = `${data[3]}`;
+	whenSaidit.textContent = `${data.citation}`;
 	whoSaidit[0].appendChild(whenSaidit);
+
 }
+printQuote();
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+//document.getElementById('load-quote').addEventListener("click", printQuote, false);
